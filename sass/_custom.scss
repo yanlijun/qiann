@@ -1,5 +1,6 @@
 .recharge {
   padding-top: $gridSpace;
+  padding-bottom: $gridSpace;
 }
 .recharge-title {
   margin: $gridSpace 0;
@@ -64,6 +65,21 @@
 .payment-list label {
   margin-bottom: $gridSpace;
   padding: $contextSpace;
+}
+.payment-list label:last-child {
+  margin-bottom: 0;
+}
+.payment-status {
+  .statu-success,
+  .statu-failure {
+    display: none;
+    margin-top: $gridSpace;
+    text-align: center;
+    font-size: 18px;
+  }
+  .show {
+    display: block;
+  }
 }
 
 .recording-item {
