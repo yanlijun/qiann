@@ -1,3 +1,47 @@
+/********* Center *********/
+.u-center {
+  @extend %display-flex;
+  @include justify-content(center);
+  @include align-items(center);
+}
+/********* Check *********/
+.u-check {
+  [type=radio],
+  [type=checkbox] {
+    display: none;
+
+    & + .u-ico {
+      border: 1px solid $gray;
+    }
+
+    &.checked + .u-ico {
+      border: 1px solid $blueLight;
+      background: $blueLight url('../images/icon-right.png') no-repeat center;
+      background-size: 60%;
+    }
+  }
+  [type=radio] {
+    & + .u-ico {
+      min-width: 20px;
+      height: 20px;
+      @include border-radius(50%);
+    }
+  }
+  [type=checkbox] {
+    & + .u-ico {
+      min-width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+
+
+.padding-context {
+  padding-top: $contextSpace;
+  padding-bottom: $contextSpace;
+}
+
 .recharge {
   padding-top: $gridSpace;
   padding-bottom: $gridSpace;
@@ -5,9 +49,11 @@
 .recharge-title {
   margin: $gridSpace 0;
 }
-.select-card {
+.select-card,
+.select-card-small {
   @extend %display-flex;
   @include flex-wrap(wrap);
+  margin-bottom: 5px;
 }
 .select-card a {
   margin-right: $contextSpace;
@@ -62,25 +108,80 @@
   }
 }
 
+.recharge-small,
+.select-card-small {
+  width: 100%;
+}
+.recharge-small {
+  @include display-flex;
+}
+
+.select-card-small {
+  margin-bottom: 0;
+  border-bottom: 1px solid #9fa0a0;
+  border-left: 1px solid #9fa0a0;
+
+  .u-btn {
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex(1 0 30%);
+    padding: 2px $contextSpace;
+    font-size: 12px;
+
+    border-top: 1px solid #9fa0a0;
+    border-right: 1px solid #9fa0a0;
+    &.sel,
+    &:hover {
+      background-color: $blueLight;
+      color: $white;
+    }
+  }
+}
+
+
 .payment-list label {
   margin-bottom: $gridSpace;
   padding: $contextSpace;
+  font-size: 17px;
 }
 .payment-list label:last-child {
   margin-bottom: 0;
 }
 .payment-status {
-  .statu-success,
-  .statu-failure {
-    display: none;
-    margin-top: $gridSpace;
-    text-align: center;
-    font-size: 18px;
-  }
-  .show {
-    display: block;
+  @include justify-content(center);
+  @include align-items(center);
+  font-size: 22px;
+
+  .status-success,
+  .status-failure {
+    width: 80px;
+    height: 80px;
+    margin: $gridSpace auto;
+    @include border-radius(50%);
+
+    .u-ico {
+      width: 50px;
+      height: 50px;
+      margin: 15px;
+    }
   }
 }
+.payment-assist {
+  display: inline-block;
+  padding: 6px 0;
+  font-size: 15px;
+
+  a {
+    display: inline-block;
+    margin: 0 10px;
+
+    &:hover {
+      color: $blueLight;
+    }
+  }
+}
+
 
 .recording-item {
   margin-top: $gridSpace;

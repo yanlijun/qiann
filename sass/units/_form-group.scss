@@ -4,6 +4,10 @@
   border: 1px solid #9fa0a0;
   color: #1e1e1e;
 }
+.u-fm-el:last-child,
+.u-fm-grp:last-child {
+  margin-bottom: 0;
+}
 .u-fm-el:not([class*=u-rc]),
 .u-fm-grp:not([class*=u-rc]) {
   border-radius: 2px;
